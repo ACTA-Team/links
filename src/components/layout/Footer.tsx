@@ -64,7 +64,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://demo.acta.build"
+                  href="https://dapp.acta.build"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 text-xs sm:text-sm"

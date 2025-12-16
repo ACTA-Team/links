@@ -31,12 +31,12 @@ export function LinksList() {
         </span>
       </Link>
       <Link
-        href="https://demo.acta.build"
+        href="https://dapp.acta.build"
         className="flex items-center gap-3 p-3 sm:p-4 border border-gray-200 dark:border-zinc-800 rounded-md hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors"
       >
         <CodeIcon className="text-gray-700 dark:text-gray-300 w-4 sm:w-5 h-4 sm:h-5" />
         <span className="font-medium text-gray-900 dark:text-gray-100 text-sm sm:text-base">
-          Demo
+          dApp
         </span>
       </Link>
       <Link
