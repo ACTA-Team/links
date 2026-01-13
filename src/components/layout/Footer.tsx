@@ -54,7 +54,7 @@ export function Footer() {
                   Website
                 </Link>
               </li>
-             
+
               <li>
                 <Link
                   href="https://dapp.acta.build"
