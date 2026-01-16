@@ -7,6 +7,7 @@ import {
   TwitterIcon,
   LinkedinIcon,
   InstagramIcon,
+  DiscordIcon,
 } from "@/components/font-awesome-icons";
 
 export function LinksList() {
@@ -37,6 +38,15 @@ export function LinksList() {
         <GithubIcon className="text-gray-700 dark:text-gray-300 w-4 sm:w-5 h-4 sm:h-5" />
         <span className="font-medium text-gray-900 dark:text-gray-100 text-sm sm:text-base">
           GitHub
+        </span>
+      </Link>
+      <Link
+        href="https://discord.gg/DsUSE3aMDZ"
+        className="flex items-center gap-3 p-3 sm:p-4 border border-gray-200 dark:border-zinc-800 rounded-md hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors"
+      >
+        <DiscordIcon className="text-gray-700 dark:text-gray-300 w-4 sm:w-5 h-4 sm:h-5" />
+        <span className="font-medium text-gray-900 dark:text-gray-100 text-sm sm:text-base">
+          Discord
         </span>
       </Link>
       <Link
