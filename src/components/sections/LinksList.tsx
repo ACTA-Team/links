@@ -37,7 +37,7 @@ export function LinksList() {
       >
         <FileTextIcon className="text-gray-700 dark:text-gray-300 w-4 sm:w-5 h-4 sm:h-5" />
         <span className="font-medium text-gray-900 dark:text-gray-100 text-sm sm:text-base">
-          Docs
+          Documentation
         </span>
       </Link>
       <Link
