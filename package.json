@@ -11,10 +11,6 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "latest",
-    "@fortawesome/free-brands-svg-icons": "latest",
-    "@fortawesome/free-solid-svg-icons": "latest",
-    "@fortawesome/react-fontawesome": "latest",
     "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
     "lucide-react": "^0.454.0",
