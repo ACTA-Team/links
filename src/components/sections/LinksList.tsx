@@ -121,7 +121,7 @@ const GROUPS: LinkGroup[] = [
 export function LinksList() {
   return (
     <div className="w-full space-y-5">
-      {GROUPS.map(group => (
+      {GROUPS.map((group) => (
         <div key={group.heading ?? "main"}>
           {group.heading ? (
             <p className="mb-2.5 text-[11px] font-semibold uppercase tracking-widest text-muted-foreground/60">
@@ -144,9 +144,7 @@ export function LinksList() {
                   <span className="text-sm font-medium leading-tight text-foreground sm:text-[15px]">
                     {label}
                   </span>
-                  <span className="truncate text-xs text-muted-foreground">
-                    {hint}
-                  </span>
+                  <span className="truncate text-xs text-muted-foreground">{hint}</span>
                 </span>
                 <ExternalLink
                   className="h-4 w-4 shrink-0 text-muted-foreground opacity-60 transition-all group-hover:text-primary group-hover:opacity-100"

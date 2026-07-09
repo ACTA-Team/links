@@ -20,9 +20,7 @@ export function LogoBanner() {
         />
       </div>
       <div className="text-center">
-        <p className="text-2xl font-bold tracking-tight text-foreground">
-          ACTA
-        </p>
+        <p className="text-2xl font-bold tracking-tight text-foreground">ACTA</p>
         <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
           The new infrastructure for digital trust.
         </p>

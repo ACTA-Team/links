@@ -30,10 +30,7 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 gap-8 py-10 sm:grid-cols-2 md:grid-cols-3">
           <div className="md:col-span-1">
-            <Link
-              href="https://acta.build"
-              className="mb-3 flex items-center gap-2 md:mb-4"
-            >
+            <Link href="https://acta.build" className="mb-3 flex items-center gap-2 md:mb-4">
               <div className="h-6 w-6">
                 <Image
                   src="/black.png"
@@ -50,9 +47,7 @@ export function Footer() {
                   className="hidden h-full w-full dark:block"
                 />
               </div>
-              <span className="text-sm font-semibold tracking-wide text-foreground">
-                ACTA
-              </span>
+              <span className="text-sm font-semibold tracking-wide text-foreground">ACTA</span>
             </Link>
             <p className="text-xs text-muted-foreground sm:text-sm">
               The new infrastructure for digital trust.
