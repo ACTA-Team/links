@@ -18,8 +18,7 @@ export function TabTitle({ awayTitle }: { awayTitle: string }) {
       }
     };
     document.addEventListener("visibilitychange", onVisibilityChange);
-    return () =>
-      document.removeEventListener("visibilitychange", onVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", onVisibilityChange);
   }, [awayTitle]);
 
   return null;
