@@ -12,7 +12,6 @@ import {
   Package,
   Network,
   IdCard,
-  BarChart3,
 } from "lucide-react";
 import { DiscordIcon } from "@/components/ui/discord-icon";
 
@@ -26,6 +25,8 @@ type LinkEntry = {
 type LinkGroup = {
   heading: string | null;
   items: LinkEntry[];
+  // "grid" lays the items out in responsive columns; defaults to a stacked list.
+  layout?: "list" | "grid";
 };
 
 const GROUPS: LinkGroup[] = [
@@ -73,11 +74,35 @@ const GROUPS: LinkGroup[] = [
         hint: "did.acta.build",
         Icon: IdCard,
       },
+    ],
+  },
+  {
+    heading: "Stats",
+    layout: "grid",
+    items: [
       {
         href: "https://stats.acta.build",
-        label: "Stats",
+        label: "Website",
         hint: "stats.acta.build",
-        Icon: BarChart3,
+        Icon: Globe,
+      },
+      {
+        href: "https://dapp.stats.acta.build",
+        label: "dApp",
+        hint: "dapp.stats.acta.build",
+        Icon: AppWindow,
+      },
+      {
+        href: "https://docs.stats.acta.build",
+        label: "Docs",
+        hint: "docs.stats.acta.build",
+        Icon: BookOpen,
+      },
+      {
+        href: "https://did.stats.acta.build",
+        label: "did:stellar",
+        hint: "did.stats.acta.build",
+        Icon: IdCard,
       },
     ],
   },
@@ -118,6 +143,31 @@ const GROUPS: LinkGroup[] = [
   },
 ];
 
+function LinkCard({ href, label, hint, Icon }: LinkEntry) {
+  return (
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex items-center gap-3 rounded-xl border border-border bg-card/60 px-4 py-3 transition-all duration-200 hover:border-primary/40 hover:bg-card"
+    >
+      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-muted/50 text-muted-foreground transition-colors group-hover:text-primary">
+        <Icon className="h-4 w-4" />
+      </span>
+      <span className="flex min-w-0 flex-1 flex-col">
+        <span className="text-sm font-medium leading-tight text-foreground sm:text-[15px]">
+          {label}
+        </span>
+        <span className="truncate text-xs text-muted-foreground">{hint}</span>
+      </span>
+      <ExternalLink
+        className="h-4 w-4 shrink-0 text-muted-foreground opacity-60 transition-all group-hover:text-primary group-hover:opacity-100"
+        aria-hidden
+      />
+    </Link>
+  );
+}
+
 export function LinksList() {
   return (
     <div className="w-full space-y-5">
@@ -128,29 +178,15 @@ export function LinksList() {
               {group.heading}
             </p>
           ) : null}
-          <div className="space-y-2.5">
-            {group.items.map(({ href, label, hint, Icon }) => (
-              <Link
-                key={href}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-3 rounded-xl border border-border bg-card/60 px-4 py-3 transition-all duration-200 hover:border-primary/40 hover:bg-card"
-              >
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-muted/50 text-muted-foreground transition-colors group-hover:text-primary">
-                  <Icon className="h-4 w-4" />
-                </span>
-                <span className="flex min-w-0 flex-1 flex-col">
-                  <span className="text-sm font-medium leading-tight text-foreground sm:text-[15px]">
-                    {label}
-                  </span>
-                  <span className="truncate text-xs text-muted-foreground">{hint}</span>
-                </span>
-                <ExternalLink
-                  className="h-4 w-4 shrink-0 text-muted-foreground opacity-60 transition-all group-hover:text-primary group-hover:opacity-100"
-                  aria-hidden
-                />
-              </Link>
+          <div
+            className={
+              group.layout === "grid"
+                ? "grid grid-cols-1 gap-2.5 sm:grid-cols-2"
+                : "space-y-2.5"
+            }
+          >
+            {group.items.map((item) => (
+              <LinkCard key={item.href} {...item} />
             ))}
           </div>
         </div>
