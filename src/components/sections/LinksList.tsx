@@ -180,9 +180,7 @@ export function LinksList() {
           ) : null}
           <div
             className={
-              group.layout === "grid"
-                ? "grid grid-cols-1 gap-2.5 sm:grid-cols-2"
-                : "space-y-2.5"
+              group.layout === "grid" ? "grid grid-cols-1 gap-2.5 sm:grid-cols-2" : "space-y-2.5"
             }
           >
             {group.items.map((item) => (
