@@ -25,13 +25,11 @@ type LinkEntry = {
 type LinkGroup = {
   heading: string | null;
   items: LinkEntry[];
-  // "grid" lays the items out in responsive columns; defaults to a stacked list.
-  layout?: "list" | "grid";
 };
 
 const GROUPS: LinkGroup[] = [
   {
-    heading: null,
+    heading: "Product",
     items: [
       {
         href: "https://acta.build",
@@ -78,7 +76,6 @@ const GROUPS: LinkGroup[] = [
   },
   {
     heading: "Stats",
-    layout: "grid",
     items: [
       {
         href: "https://stats.acta.build",
@@ -170,7 +167,7 @@ function LinkCard({ href, label, hint, Icon }: LinkEntry) {
 
 export function LinksList() {
   return (
-    <div className="w-full space-y-5">
+    <div className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {GROUPS.map((group) => (
         <div key={group.heading ?? "main"}>
           {group.heading ? (
@@ -178,11 +175,7 @@ export function LinksList() {
               {group.heading}
             </p>
           ) : null}
-          <div
-            className={
-              group.layout === "grid" ? "grid grid-cols-1 gap-2.5 sm:grid-cols-2" : "space-y-2.5"
-            }
-          >
+          <div className="space-y-2.5">
             {group.items.map((item) => (
               <LinkCard key={item.href} {...item} />
             ))}
