@@ -14,7 +14,7 @@
     "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
     "lucide-react": "^0.454.0",
-    "next": "15.2.8",
+    "next": "15.5.21",
     "posthog-js": "^1.284.0",
     "posthog-node": "^5.11.0",
     "react": "^19",
@@ -29,9 +29,16 @@
     "eslint": "^9.38.0",
     "eslint-config-next": "^15.5.6",
     "husky": "^9.1.7",
-    "postcss": "^8",
+    "postcss": "^8.5.10",
     "prettier": "^3.6.2",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
+  },
+  "overrides": {
+    "sharp": "^0.35.3",
+    "postcss": "^8.5.10",
+    "brace-expansion@<2": "^1.1.16",
+    "brace-expansion@>=2 <3": "^2.1.2",
+    "brace-expansion@>=3": ">=5.0.7"
   }
 }
