@@ -52,14 +52,31 @@ const GROUPS: LinkGroup[] = [
     ],
   },
   {
-    heading: "For developers",
+    heading: "Packages",
     items: [
       {
         href: "https://www.npmjs.com/package/@acta-team/credentials",
-        label: "npm package",
-        hint: "@acta-team/credentials",
+        label: "@acta-team/credentials",
+        hint: "Credentials SDK",
         Icon: Package,
       },
+      {
+        href: "https://www.npmjs.com/package/@acta-team/did-stellar",
+        label: "@acta-team/did-stellar",
+        hint: "did:stellar SDK",
+        Icon: Package,
+      },
+      {
+        href: "https://www.npmjs.com/package/@acta-team/docs-mcp",
+        label: "@acta-team/docs-mcp",
+        hint: "Docs MCP server",
+        Icon: Package,
+      },
+    ],
+  },
+  {
+    heading: "For developers",
+    items: [
       {
         href: "https://api.testnet.acta.build/docs",
         label: "API Playground",
@@ -167,7 +184,7 @@ function LinkCard({ href, label, hint, Icon }: LinkEntry) {
 
 export function LinksList() {
   return (
-    <div className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid w-full grid-cols-1 items-start gap-x-5 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
       {GROUPS.map((group) => (
         <div key={group.heading ?? "main"}>
           {group.heading ? (
