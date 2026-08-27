@@ -78,9 +78,9 @@ const GROUPS: LinkGroup[] = [
     heading: "For developers",
     items: [
       {
-        href: "https://api.testnet.acta.build/docs",
+        href: "https://sandbox-api.acta.build/docs",
         label: "API Playground",
-        hint: "api.testnet.acta.build/docs",
+        hint: "sandbox-api.acta.build/docs",
         Icon: Network,
       },
       {
