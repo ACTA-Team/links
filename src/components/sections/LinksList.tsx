@@ -75,8 +75,14 @@ const GROUPS: LinkGroup[] = [
     heading: "For developers",
     items: [
       {
+        href: "https://production-api.acta.build/docs",
+        label: "API · Mainnet",
+        hint: "production-api.acta.build/docs",
+        Icon: Network,
+      },
+      {
         href: "https://sandbox-api.acta.build/docs",
-        label: "API Playground",
+        label: "API · Sandbox",
         hint: "sandbox-api.acta.build/docs",
         Icon: Network,
       },
