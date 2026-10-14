@@ -1,114 +1,74 @@
 import Link from "next/link";
-import Image from "next/image";
-import { Globe, Github, Twitter, Linkedin, Instagram } from "lucide-react";
-import { DiscordIcon } from "@/components/ui/discord-icon";
+import { Logo } from "@/components/ui/logo";
 
-const RESOURCES = [
-  { href: "https://acta.build", label: "Website", Icon: Globe },
-  { href: "https://docs.acta.build", label: "Start Building", Icon: null },
-];
-
-const CONNECT = [
-  { href: "https://github.com/ACTA-Team", label: "GitHub", Icon: Github },
-  { href: "https://discord.gg/DsUSE3aMDZ", label: "Discord", Icon: DiscordIcon },
-  { href: "https://x.com/ActaXyz", label: "Twitter", Icon: Twitter },
+const COLUMNS = [
   {
-    href: "https://www.linkedin.com/company/acta-org",
-    label: "LinkedIn",
-    Icon: Linkedin,
+    title: "Product",
+    links: [
+      { label: "Website", href: "https://acta.build" },
+      { label: "dApp", href: "https://dapp.acta.build" },
+      { label: "Documentation", href: "https://docs.acta.build" },
+    ],
   },
   {
-    href: "https://www.instagram.com/acta.xyz?igsh=MTF3czdzYTVlemxmMw==",
-    label: "Instagram",
-    Icon: Instagram,
+    title: "Developers",
+    links: [
+      { label: "API Playground", href: "https://sandbox-api.acta.build/docs" },
+      { label: "DID Resolver", href: "https://did.acta.build" },
+      { label: "GitHub", href: "https://github.com/ACTA-Team" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "LinkedIn", href: "https://www.linkedin.com/company/acta-org" },
+      { label: "X", href: "https://x.com/ActaXyz" },
+      { label: "Instagram", href: "https://www.instagram.com/acta.xyz" },
+      { label: "Discord", href: "https://discord.gg/DsUSE3aMDZ" },
+    ],
   },
 ];
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/50 bg-background/80 backdrop-blur-sm transition-colors">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 gap-8 py-10 sm:grid-cols-2 md:grid-cols-3">
-          <div className="md:col-span-1">
-            <Link href="https://acta.build" className="mb-3 flex items-center gap-2 md:mb-4">
-              <div className="h-6 w-6">
-                <Image
-                  src="/black.png"
-                  alt="ACTA Logo"
-                  width={24}
-                  height={24}
-                  className="h-full w-full dark:hidden"
-                />
-                <Image
-                  src="/white.png"
-                  alt="ACTA Logo"
-                  width={24}
-                  height={24}
-                  className="hidden h-full w-full dark:block"
-                />
-              </div>
-              <span className="text-sm font-semibold tracking-wide text-foreground">ACTA</span>
-            </Link>
-            <p className="text-xs text-muted-foreground sm:text-sm">
-              The new infrastructure for digital trust.
+    <footer className="relative border-t border-border bg-band">
+      {/* A hairline of burgundy: the one red the page closes on. */}
+      <span
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(to_right,transparent,var(--burgundy)_30%,var(--cherry)_50%,var(--burgundy)_70%,transparent)] opacity-70"
+      />
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-[1.4fr_repeat(3,1fr)] md:gap-12">
+          <div className="col-span-2 md:col-span-1">
+            <Logo />
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
+              Verifiable credentials for organizations. Issue once, verify anywhere.
             </p>
           </div>
-
-          <div>
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-muted-foreground/60">
-              Resources
-            </p>
-            <ul className="flex flex-col gap-2.5">
-              {RESOURCES.map(({ href, label, Icon }) => (
-                <li key={href + label}>
-                  <Link
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {Icon ? <Icon className="h-3.5 w-3.5" /> : null}
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-muted-foreground/60">
-              Connect
-            </p>
-            <ul className="flex flex-col gap-2.5">
-              {CONNECT.map(({ href, label, Icon }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {Icon ? <Icon className="h-3.5 w-3.5" /> : null}
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {COLUMNS.map((col) => (
+            <div key={col.title}>
+              <p className="eyebrow">{col.title}</p>
+              <ul className="mt-5 space-y-3 text-sm">
+                {col.links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-foreground/75 transition-colors hover:text-foreground"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-border/50 py-5 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; {new Date().getFullYear()} ACTA</p>
-          <p>
-            <Link
-              className="text-foreground/80 hover:text-foreground hover:underline"
-              href="https://github.com/ACTA-Team"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Source &amp; community
-            </Link>
-          </p>
+        <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground/80 sm:mt-16 sm:flex-row sm:items-center sm:justify-between">
+          <p>&copy; {new Date().getFullYear()} ACTA. All rights reserved.</p>
+          <p>Issue once. Verify anywhere.</p>
         </div>
       </div>
     </footer>
