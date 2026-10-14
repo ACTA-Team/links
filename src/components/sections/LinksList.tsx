@@ -8,12 +8,13 @@ import {
   Twitter,
   Linkedin,
   Instagram,
-  ExternalLink,
+  ArrowUpRight,
   Package,
   Network,
   IdCard,
 } from "lucide-react";
 import { DiscordIcon } from "@/components/ui/discord-icon";
+import { Reveal } from "@/components/ui/reveal";
 
 type LinkEntry = {
   href: string;
@@ -163,19 +164,17 @@ function LinkCard({ href, label, hint, Icon }: LinkEntry) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex items-center gap-3 rounded-xl border border-border bg-card/60 px-4 py-3 transition-all duration-200 hover:border-primary/40 hover:bg-card"
+      className="lift group flex items-center gap-3.5 rounded-2xl border border-border bg-surface p-4 hover:border-primary/40"
     >
-      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-muted/50 text-muted-foreground transition-colors group-hover:text-primary">
-        <Icon className="h-4 w-4" />
+      <span className="grid size-10 shrink-0 place-items-center rounded-full border border-border-strong bg-surface-sunken text-foreground/80 transition-colors group-hover:border-primary/60 group-hover:text-primary">
+        <Icon className="size-4" />
       </span>
-      <span className="flex min-w-0 flex-1 flex-col">
-        <span className="text-sm font-medium leading-tight text-foreground sm:text-[15px]">
-          {label}
-        </span>
-        <span className="truncate text-xs text-muted-foreground">{hint}</span>
+      <span className="flex min-w-0 flex-1 flex-col gap-1">
+        <span className="text-[15px] font-semibold leading-tight">{label}</span>
+        <span className="truncate font-mono text-[11px] text-muted-foreground">{hint}</span>
       </span>
-      <ExternalLink
-        className="h-4 w-4 shrink-0 text-muted-foreground opacity-60 transition-all group-hover:text-primary group-hover:opacity-100"
+      <ArrowUpRight
+        className="size-4 shrink-0 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"
         aria-hidden
       />
     </Link>
@@ -184,20 +183,25 @@ function LinkCard({ href, label, hint, Icon }: LinkEntry) {
 
 export function LinksList() {
   return (
-    <div className="grid w-full grid-cols-1 items-start gap-x-5 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
-      {GROUPS.map((group) => (
-        <div key={group.heading ?? "main"}>
+    <div className="mt-12 grid w-full grid-cols-1 items-start gap-x-6 gap-y-10 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
+      {GROUPS.map((group, i) => (
+        <Reveal key={group.heading ?? "main"} delay={(i % 3) * 60}>
           {group.heading ? (
-            <p className="mb-2.5 text-[11px] font-semibold uppercase tracking-widest text-muted-foreground/60">
-              {group.heading}
+            <p className="eyebrow mb-4 flex items-center gap-3">
+              <span className="text-foreground/80">{String(i + 1).padStart(2, "0")}</span>
+              <span
+                className="grow-line h-px w-6 rounded-full bg-border-strong"
+                aria-hidden="true"
+              />
+              <span>{group.heading}</span>
             </p>
           ) : null}
-          <div className="space-y-2.5">
+          <div className="space-y-3">
             {group.items.map((item) => (
               <LinkCard key={item.href} {...item} />
             ))}
           </div>
-        </div>
+        </Reveal>
       ))}
     </div>
   );

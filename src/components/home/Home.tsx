@@ -5,15 +5,22 @@ import { LinksList } from "@/components/sections/LinksList";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-background transition-colors">
+    <div className="flex min-h-screen flex-col">
       <Header />
 
-      <main className="flex flex-grow items-center justify-center px-4 py-6 md:py-12">
-        <div className="w-full max-w-[90%] rounded-2xl bg-card/60 p-4 transition-colors sm:max-w-3xl sm:p-6 md:p-8 lg:max-w-5xl">
-          <div className="flex flex-col items-center">
-            <LogoBanner />
-            <LinksList />
-          </div>
+      <main className="relative isolate flex-1 overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-40 -top-40 -z-10 size-176 animate-drift rounded-full bg-[radial-gradient(closest-side,var(--glow),transparent)] blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="bg-rules pointer-events-none absolute inset-0 -z-10 mask-[radial-gradient(ellipse_at_top,black,transparent_70%)]"
+        />
+
+        <div className="mx-auto max-w-7xl px-5 pb-16 pt-28 sm:px-8 sm:pb-24 sm:pt-32 lg:pb-32 lg:pt-40">
+          <LogoBanner />
+          <LinksList />
         </div>
       </main>
 
