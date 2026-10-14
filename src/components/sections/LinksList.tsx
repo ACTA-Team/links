@@ -12,6 +12,8 @@ import {
   Package,
   Network,
   IdCard,
+  Fingerprint,
+  ChartColumn,
 } from "lucide-react";
 import { DiscordIcon } from "@/components/ui/discord-icon";
 import { Reveal } from "@/components/ui/reveal";
@@ -62,12 +64,6 @@ const GROUPS: LinkGroup[] = [
         Icon: Package,
       },
       {
-        href: "https://www.npmjs.com/package/@acta-team/did-stellar",
-        label: "@acta-team/did-stellar",
-        hint: "did:stellar SDK",
-        Icon: Package,
-      },
-      {
         href: "https://www.npmjs.com/package/@acta-team/docs-mcp",
         label: "@acta-team/docs-mcp",
         hint: "Docs MCP server",
@@ -84,11 +80,34 @@ const GROUPS: LinkGroup[] = [
         hint: "sandbox-api.acta.build/docs",
         Icon: Network,
       },
+    ],
+  },
+  {
+    heading: "did:stellar",
+    items: [
+      {
+        href: "https://stellar.acta.build",
+        label: "did:stellar",
+        hint: "stellar.acta.build",
+        Icon: Fingerprint,
+      },
       {
         href: "https://did.acta.build",
         label: "DID Resolver",
         hint: "did.acta.build",
         Icon: IdCard,
+      },
+      {
+        href: "https://www.npmjs.com/package/@acta-team/did-stellar",
+        label: "@acta-team/did-stellar",
+        hint: "did:stellar SDK",
+        Icon: Package,
+      },
+      {
+        href: "https://did.stats.acta.build",
+        label: "Stats",
+        hint: "did.stats.acta.build",
+        Icon: ChartColumn,
       },
     ],
   },
@@ -112,12 +131,6 @@ const GROUPS: LinkGroup[] = [
         label: "Docs",
         hint: "docs.stats.acta.build",
         Icon: BookOpen,
-      },
-      {
-        href: "https://did.stats.acta.build",
-        label: "did:stellar",
-        hint: "did.stats.acta.build",
-        Icon: IdCard,
       },
     ],
   },

@@ -14,6 +14,7 @@ const COLUMNS = [
     title: "Developers",
     links: [
       { label: "API Playground", href: "https://sandbox-api.acta.build/docs" },
+      { label: "did:stellar", href: "https://stellar.acta.build" },
       { label: "DID Resolver", href: "https://did.acta.build" },
       { label: "GitHub", href: "https://github.com/ACTA-Team" },
     ],
