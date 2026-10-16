@@ -3,9 +3,9 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /**
- * The ACTA "A" mark. There is a white file and a black one; both are
+ * The ACTA "A" mark. There is a cream file and a navy one; both are
  * rendered and CSS shows the one the theme can read, so the right mark is
- * there on first paint. `onDark` pins the white one for grounds that stay
+ * there on first paint. `onDark` pins the cream one for grounds that stay
  * dark in both themes.
  */
 export function LogoIcon({
@@ -26,7 +26,7 @@ export function LogoIcon({
       style={{ width: size, height: size }}
     >
       <Image
-        src="/Acta-logo-black.png"
+        src="/Iso-dark.png"
         alt=""
         width={size}
         height={size}
@@ -34,7 +34,7 @@ export function LogoIcon({
         className={cn(shared, onDark ? "hidden" : "dark:hidden")}
       />
       <Image
-        src="/Acta-logo.png"
+        src="/Iso-light.png"
         alt=""
         width={size}
         height={size}
